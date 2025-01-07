@@ -15,3 +15,16 @@ def scan_the_port(host, port):
 
     except socket.error:
         print(f" An Error was detected when connecting to {host} on port {port}.")
+
+
+def scan_the_ports(host, start_port, end_port):
+    print(f"Scanning ports {start_port} to {end_port} on {host}.")
+    for port in range (start_port, end_port + 1):
+        scan_the_port(host, port)
+
+if __name__ == "__main__":
+    target_host = input("Enter the IP address or hostname of the target: ")
+    start_port = int(input("Enter the starting Port number: "))
+    end_port = int(input("Enter the ending Port number: "))
+
+    scan_the_ports(target_host, start_port, end_port)
